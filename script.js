@@ -5,5 +5,13 @@ const loadData = () => {
 };
 const displayDog = (dogList) => {
   const dogDetails = document.getElementById("dog-details");
-  dogDetails.innerText = dogList[0].name;
+  const firstTenDog = dogList.slice(0, 10);
+  for (const dog of firstTenDog) {
+    const div = document.createElement("div");
+    div.classList.add("col-lg-4");
+    div.innerHTML = `
+        <h2>${dog.name}</h2>
+    `;
+    dogDetails.appendChild(div);
+  }
 };
